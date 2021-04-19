@@ -17,12 +17,13 @@
   <a href="{% url 'post_detail' post_id=post.id category_id=category.id %}">
     {{post.title }}
   </a>
-  <p>{{ category.title }} </p>
+ 
 </div>
 
 <hr>
-<a href="{% url 'new_post' category_id=category.id %}"> create new post in {{category.name}} posts </a>
+
 
 {% endfor %}
+<a href="{% url 'new_post' category_id=category.id %}"> create new post in {{category.name}} posts </a>
 {%endblock%}
 

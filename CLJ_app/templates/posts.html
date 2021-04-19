@@ -4,8 +4,8 @@
   <h1> All Posts </h1>
   {% for post in all_posts %}
   <div>
-    <a href="{% url 'post_detail' category_id=post.category.id post_id=post.id%}"> </a>
-    <p>{{post.title}}</p>
+    <strong>{{post.category}}</strong>
+    <a href="{% url 'post_detail' category_id=post.category.id post_id=post.id%}"> {{post.title}} </a>
 
   </div>
   {% endfor %}
