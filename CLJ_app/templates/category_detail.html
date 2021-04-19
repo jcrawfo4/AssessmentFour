@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> {{ category.name }} </h1>
+<a href="{% url 'category_edit' category_id=category.id %}"> Edit {{category.name}}</a>
+
+<form method='POST' action="{% url 'category_delete' category_id=category.id %}"> 
+{% csrf_token %}
+<button type='submit'> Delete {{category.name}}</button>
+</form>
+
+<a href="{% url 'categories' %}"> Back </a>
+<hr>
+<h1>{{ category.name }} titles </h1>
+{% for post in posts %}
+<div>
+  <a href="{% url 'post_detail' post_id=post.id category_id=category.id %}">
+    {{post.title }}
+  </a>
+  <p>{{ category.title }} </p>
+</div>
+
+<hr>
+<a href="{% url 'new_post' category_id=category.id %}"> create new post in {{category.name}} posts </a>
+
+{% endfor %}
+{%endblock%}
+
